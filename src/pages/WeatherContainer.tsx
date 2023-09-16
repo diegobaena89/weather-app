@@ -1,11 +1,14 @@
 import { Container, Heading, Input, Text } from "@chakra-ui/react";
 import axios from "axios";
 import { useState } from "react";
+import { CityWeatherComponent } from "../components/CityWeatherComponent";
+import { TodaysForecats } from "../components/TodaysFOrecats";
+import { AirConditions } from "../components/AirConditions";
+import { ForecastContainer } from "../components/ForecastCOntainer";
 
 export const WeatherContainer = () => {
   const [location, setLocation] = useState("");
   const [data, setData] = useState<any>({});
-  const undefinedCity = data.name !== undefined;
 
   const apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${encodeURIComponent(
     location
@@ -41,64 +44,10 @@ export const WeatherContainer = () => {
           onChange={(event) => setLocation(event.target.value)}
         />
         <div className="content-container">
-          <Container
-            border="1px solid #e2e2e2"
-            className="weather-shown"
-            borderRadius={10}
-            maxWidth={"100vw"}
-          >
-            <Heading as="h3" size="lg">
-              {data.name}
-            </Heading>
-            {data.weather ? (
-              <>
-                <Text fontSize="md">{data.weather[0].description}</Text>
-              </>
-            ) : null}
-            {data.main ? (
-              <>
-                <Heading as="h3" size="2xl">
-                  {data.main?.temp}º
-                </Heading>
-              </>
-            ) : null}
-          </Container>
-          <Container
-            border="1px solid #e2e2e2"
-            backgroundColor={"#f8f8f8"}
-            className="todays-forecast"
-            borderRadius={10}
-            maxWidth={"100vw"}
-          >
-            5
-          </Container>
-          <Container
-            border="1px solid #e2e2e2"
-            backgroundColor={"#f8f8f8"}
-            className="air-conditions"
-            borderRadius={10}
-            maxWidth={"100vw"}
-          >
-            {data.main ? (
-              <>
-                <Text fontSize="lg">Umidade: {data.main.humidity}%</Text>
-                <Text fontSize="lg">
-                  Sensação Térmica: {data.main.feels_like}MPH
-                </Text>
-                <Text fontSize="lg">Vento: {data.wind.speed}</Text>
-                <Text fontSize="lg">UV Index: {data.wind.deg}º</Text>
-              </>
-            ) : null}
-          </Container>
-          <Container
-            border="1px solid #e2e2e2"
-            backgroundColor={"#f8f8f8"}
-            className="forecast-container"
-            borderRadius={10}
-            maxWidth={"50vw"}
-          >
-            5
-          </Container>
+          <CityWeatherComponent cityData={data} />
+          <TodaysForecats />
+          <AirConditions airConditionsData={data} />
+          <ForecastContainer />
         </div>
       </Container>
     </div>
