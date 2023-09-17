@@ -1,6 +1,6 @@
 import { Container } from "@chakra-ui/react";
 
-export const TodaysForecats = () => {
+export const TodaysForecats = ({ forecastToday }: any) => {
   return (
     <Container
       border="1px solid #e2e2e2"

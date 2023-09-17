@@ -1,0 +1,49 @@
+.air-conditions {
+    display: grid; 
+
+    grid-template-rows: 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr;
+    row-gap: 5px;
+}
+
+
+.real-feel {
+    grid-row-start: 2;
+    grid-column-start: 1;
+ 
+    grid-row-end: 3;
+    grid-column-end: 2;
+}
+
+.real-feel div,
+.chance-of-rain div,
+.wind div,
+.uv-index div {
+    display: flex;
+    align-items: center;
+    margin-bottom: -2px ;
+}
+
+.chance-of-rain {
+    grid-row-start: 3;
+    grid-column-start: 1;
+ 
+    grid-row-end: 4;
+    grid-column-end: 2;
+}
+
+.wind {
+    grid-row-start: 2;
+    grid-column-start: 2;
+ 
+    grid-row-end: 3;
+    grid-column-end: 3;
+}
+
+.uv-index {
+    grid-row-start: 3;
+    grid-column-start: 2;
+ 
+    grid-row-end: 4;
+    grid-column-end: 3;
+}

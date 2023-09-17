@@ -5,7 +5,8 @@
 }
 
 body {
-    background-color: #4e8cd3 !important;
+    background-color: #f9f9f9 !important;
+    font-family: 'Roboto', sans-serif !important;
 }
 
 .weather-container {
