@@ -1,4 +1,5 @@
 import { Container, Divider, Text } from "@chakra-ui/react";
+import React from "react";
 
 export const TodaysForecats = ({ forecastToday }: any) => {
   if (!forecastToday?.list) {
@@ -19,8 +20,6 @@ export const TodaysForecats = ({ forecastToday }: any) => {
     }
   };
 
-  console.log(showAmOrPm(daysHour));
-
   return (
     <Container
       backgroundColor={"#f8f8f8"}
@@ -32,18 +31,17 @@ export const TodaysForecats = ({ forecastToday }: any) => {
       alignItems={"center"}
     >
       {firstSevenDays.map((day: any, index: any) => {
-        console.log("INDEX", index);
         return (
-          <>
+          <React.Fragment key={index}>
             <Container
-              key={day.dt}
+              key={index}
               className="forecast-day"
               padding={5}
               borderRadius={10}
               display={"flex"}
               flexDirection={"row"}
             >
-              <div style={{ maxWidth: "60px" }}>
+              <div>
                 <Text as="b" color="#7a7a7a" fontSize="sm">
                   {showAmOrPm(daysHour[index])}
                 </Text>
@@ -53,13 +51,13 @@ export const TodaysForecats = ({ forecastToday }: any) => {
                   alt={day.weather[0].description}
                 />
 
-                <Text as="b" color="#7a7a7a" fontSize="lg">
+                <Text as="b" fontSize="lg">
                   {day.main.temp_min.toFixed()}°C
                 </Text>
               </div>
             </Container>
             {index !== 6 && <Divider orientation="vertical" />}
-          </>
+          </React.Fragment>
         );
       })}
     </Container>

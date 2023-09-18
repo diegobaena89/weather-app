@@ -1,4 +1,5 @@
 import { Container, Text, Divider } from "@chakra-ui/react";
+import React from "react";
 
 export const ForecastContainer = ({ forecastSevenDays }: any) => {
   if (!forecastSevenDays?.list) {
@@ -23,9 +24,9 @@ export const ForecastContainer = ({ forecastSevenDays }: any) => {
       <Text as="b" color="#7a7a7a" fontSize="md">
         7-DAY FORECAST
       </Text>
-      {firstSevenDays.map((day: any) => {
+      {firstSevenDays.map((day: any, index: any) => {
         return (
-          <>
+          <React.Fragment key={index}>
             <Container
               key={day.dt}
               className="forecast-day"
@@ -62,7 +63,7 @@ export const ForecastContainer = ({ forecastSevenDays }: any) => {
               </div>
             </Container>
             <Divider />
-          </>
+          </React.Fragment>
         );
       })}
     </Container>

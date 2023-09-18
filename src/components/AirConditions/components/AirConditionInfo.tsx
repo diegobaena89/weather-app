@@ -26,7 +26,7 @@ export const AirConditionInfo = ({
         </Text>
       </div>
 
-      <Text marginLeft={5} fontSize="2xl" as="b">
+      <Text marginLeft={8} fontSize="lg" as="b">
         {airInfo}
       </Text>
     </div>
