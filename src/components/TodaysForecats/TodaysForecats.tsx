@@ -1,17 +1,22 @@
 import { Container, Divider, Text } from "@chakra-ui/react";
 import React from "react";
+import { IForecastData, IForecastDay } from "../Forecast";
 
-export const TodaysForecats = ({ forecastToday }: any) => {
+export const TodaysForecats = ({
+  forecastToday,
+}: {
+  forecastToday: IForecastData;
+}) => {
   if (!forecastToday?.list) {
     return null;
   }
 
   const firstSevenDays = forecastToday.list.slice(0, 7);
-  const daysHour = firstSevenDays.map((day: any) => {
+  const daysHour = firstSevenDays.map((day: IForecastDay) => {
     return day.dt_txt.split(" ")[1];
   });
 
-  const showAmOrPm = (hour: any) => {
+  const showAmOrPm = (hour: string) => {
     const hourInt = parseInt(hour);
     if (hourInt > 12) {
       return `${hourInt - 12} PM`;
@@ -30,11 +35,10 @@ export const TodaysForecats = ({ forecastToday }: any) => {
       display={"flex"}
       alignItems={"center"}
     >
-      {firstSevenDays.map((day: any, index: any) => {
+      {firstSevenDays.map((day: IForecastDay, index: number) => {
         return (
-          <React.Fragment key={index}>
+          <React.Fragment key={day.dt_txt}>
             <Container
-              key={index}
               className="forecast-day"
               padding={5}
               borderRadius={10}
