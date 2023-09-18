@@ -6,7 +6,7 @@ export const ForecastContainer = ({ forecastSevenDays }: any) => {
   }
 
   const firstSevenDays = forecastSevenDays.list.slice(0, 7);
-  // convert the dt property to a date and get only the week day
+
   const forecastDay = new Date(firstSevenDays[0].dt * 1000).toLocaleDateString(
     "en-US",
     { weekday: "long" }
@@ -20,7 +20,7 @@ export const ForecastContainer = ({ forecastSevenDays }: any) => {
       maxWidth={"50vw"}
       padding={5}
     >
-      <Text as="b" color="#7a7a7a" fontSize="lg">
+      <Text as="b" color="#7a7a7a" fontSize="md">
         7-DAY FORECAST
       </Text>
       {firstSevenDays.map((day: any) => {
@@ -31,7 +31,6 @@ export const ForecastContainer = ({ forecastSevenDays }: any) => {
               className="forecast-day"
               padding={5}
               borderRadius={10}
-              marginTop={5}
               style={{
                 display: "flex",
                 alignItems: "center",

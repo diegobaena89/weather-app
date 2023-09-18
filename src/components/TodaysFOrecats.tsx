@@ -1,8 +1,6 @@
 import { Container, Text } from "@chakra-ui/react";
 
 export const TodaysForecats = ({ forecastToday }: any) => {
-  console.log(forecastToday.list);
-
   return (
     <Container
       backgroundColor={"#f8f8f8"}
@@ -11,7 +9,7 @@ export const TodaysForecats = ({ forecastToday }: any) => {
       maxWidth={"100vw"}
       padding={5}
     >
-      <Text as="b" color="#7a7a7a" fontSize="lg">
+      <Text as="b" color="#7a7a7a" fontSize="md">
         TODAY'S FORECAST
       </Text>
       <div>test</div>

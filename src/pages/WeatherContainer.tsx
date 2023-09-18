@@ -15,7 +15,9 @@ export const WeatherContainer = () => {
     location
   )}&units=metric&appid=5d61e221a7e29ce7dcf2b4a96c455609`;
 
-  const apiForecastUrl = `http://api.openweathermap.org/data/2.5/forecast?&q=${location}&units=metric&appid=5d61e221a7e29ce7dcf2b4a96c455609`;
+  const apiForecastUrl = `http://api.openweathermap.org/data/2.5/forecast?&q=${encodeURIComponent(
+    location
+  )}&units=metric&appid=5d61e221a7e29ce7dcf2b4a96c455609`;
 
   const searchLocation = (event: any) => {
     if (event.key === "Enter") {
@@ -32,9 +34,9 @@ export const WeatherContainer = () => {
   return (
     <div className="weather-container">
       <Container
-        maxWidth={"70vw"}
+        maxWidth={"55vw"}
+        maxHeight={"auto"}
         borderRadius={15}
-        // border="1px solid #e2e2e2"
         backgroundColor={"#fff"}
         padding="20px"
         boxShadow={"0 0 10px rgba(0, 0, 0, 0.2)"}
