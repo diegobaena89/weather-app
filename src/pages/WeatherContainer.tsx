@@ -2,7 +2,7 @@ import { Container, Heading, Input, Text } from "@chakra-ui/react";
 import axios from "axios";
 import { useState } from "react";
 import { CityWeatherComponent } from "../components/CityWeatherComponent/CityWeatherComponent";
-import { TodaysForecats } from "../components/TodaysFOrecats";
+import { TodaysForecats } from "../components/TodaysForecats/TodaysForecats";
 import { AirConditions } from "../components/AirConditions/AirConditions";
 import { ForecastContainer } from "../components/ForecastContainer";
 
