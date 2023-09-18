@@ -23,6 +23,7 @@ export const AirConditions = ({ airConditionsData }: any) => {
             infoText="Humidity:"
             icon={Drop}
             className="chance-of-rain"
+            label="Chance of rain"
           />
 
           <AirConditionInfo
@@ -30,6 +31,7 @@ export const AirConditions = ({ airConditionsData }: any) => {
             infoText="Real Feel:"
             icon={ThermometerSimple}
             className="real-feel"
+            label="Real feel"
           />
 
           <AirConditionInfo
@@ -37,6 +39,7 @@ export const AirConditions = ({ airConditionsData }: any) => {
             infoText="Wind:"
             icon={Wind}
             className="wind"
+            label="Wind velocity"
           />
 
           <AirConditionInfo
@@ -44,6 +47,7 @@ export const AirConditions = ({ airConditionsData }: any) => {
             infoText="UV Index:"
             icon={Sun}
             className="uv-index"
+            label="UV Index"
           />
         </>
       ) : null}

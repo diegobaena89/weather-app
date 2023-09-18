@@ -1,4 +1,4 @@
-import { Container } from "@chakra-ui/react";
+import { Container, Text } from "@chakra-ui/react";
 
 export const TodaysForecats = ({ forecastToday }: any) => {
   return (
@@ -9,7 +9,7 @@ export const TodaysForecats = ({ forecastToday }: any) => {
       borderRadius={10}
       maxWidth={"100vw"}
     >
-      5
+      <Text>Today's Forecast</Text>
     </Container>
   );
 };

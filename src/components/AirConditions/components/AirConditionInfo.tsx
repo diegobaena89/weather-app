@@ -1,26 +1,31 @@
-import { Text } from "@chakra-ui/react";
+import { Text, Tooltip } from "@chakra-ui/react";
 
 interface AirConditionInfoProps {
   airInfo: string;
   infoText: string;
   icon: React.ElementType;
   className?: string;
+  label?: string;
 }
 
 export const AirConditionInfo = ({
   airInfo,
   infoText,
   className,
+  label,
   icon: IconComponent,
 }: AirConditionInfoProps) => {
   return (
     <div className={className}>
       <div>
-        <IconComponent size={20} />
-        <Text fontSize="2xl" color="#7a7a7a">
+        <Tooltip label={label} fontSize="md">
+          <IconComponent size={20} />
+        </Tooltip>
+        <Text fontSize="2xl" marginLeft={3} color="#7a7a7a">
           {infoText}
         </Text>
       </div>
+
       <Text marginLeft={5} fontSize="2xl" as="b">
         {airInfo}
       </Text>
