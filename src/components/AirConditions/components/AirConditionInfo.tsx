@@ -21,7 +21,7 @@ export const AirConditionInfo = ({
         <Tooltip label={label} fontSize="md">
           <IconComponent size={20} />
         </Tooltip>
-        <Text fontSize="2xl" marginLeft={3} color="#7a7a7a">
+        <Text fontSize="lg" marginLeft={3} color="#7a7a7a">
           {infoText}
         </Text>
       </div>

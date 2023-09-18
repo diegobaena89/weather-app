@@ -4,7 +4,7 @@ import { useState } from "react";
 import { CityWeatherComponent } from "../components/CityWeatherComponent/CityWeatherComponent";
 import { TodaysForecats } from "../components/TodaysFOrecats";
 import { AirConditions } from "../components/AirConditions/AirConditions";
-import { ForecastContainer } from "../components/ForecastCOntainer";
+import { ForecastContainer } from "../components/ForecastContainer";
 
 export const WeatherContainer = () => {
   const [location, setLocation] = useState("");
@@ -15,7 +15,7 @@ export const WeatherContainer = () => {
     location
   )}&units=metric&appid=5d61e221a7e29ce7dcf2b4a96c455609`;
 
-  const apiForecastUrl = `http://api.openweathermap.org/data/2.5/forecast?&q=madrid&appid=5d61e221a7e29ce7dcf2b4a96c455609`;
+  const apiForecastUrl = `http://api.openweathermap.org/data/2.5/forecast?&q=${location}&units=metric&appid=5d61e221a7e29ce7dcf2b4a96c455609`;
 
   const searchLocation = (event: any) => {
     if (event.key === "Enter") {
@@ -54,7 +54,7 @@ export const WeatherContainer = () => {
           <CityWeatherComponent cityData={data} />
           <TodaysForecats forecastToday={forecast} />
           <AirConditions airConditionsData={data} />
-          <ForecastContainer />
+          <ForecastContainer forecastSevenDays={forecast} />
         </div>
       </Container>
     </div>

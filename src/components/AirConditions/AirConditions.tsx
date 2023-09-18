@@ -13,7 +13,7 @@ export const AirConditions = ({ airConditionsData }: any) => {
       padding={5}
     >
       <Text as="b" color="#7a7a7a" fontSize="lg">
-        Air Conditions
+        AIR CONDITIONS
       </Text>
 
       {airConditionsData.main ? (
