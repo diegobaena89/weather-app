@@ -1,10 +1,10 @@
-import { Container, Heading, Input, Text } from "@chakra-ui/react";
+import { Container, Input } from "@chakra-ui/react";
 import axios from "axios";
 import { useState } from "react";
 import { CityWeatherComponent } from "../components/CityWeatherComponent/CityWeatherComponent";
 import { TodaysForecats } from "../components/TodaysForecats/TodaysForecats";
 import { AirConditions } from "../components/AirConditions/AirConditions";
-import { ForecastContainer } from "../components/ForecastContainer";
+import { ForecastContainer } from "../components/ForecastContainer/ForecastContainer";
 
 export const WeatherContainer = () => {
   const [location, setLocation] = useState("");
@@ -19,7 +19,9 @@ export const WeatherContainer = () => {
     location
   )}&units=metric&appid=5d61e221a7e29ce7dcf2b4a96c455609`;
 
-  const searchLocation = (event: any) => {
+  console.log("DATA", data);
+
+  const searchLocation = (event: React.KeyboardEvent) => {
     if (event.key === "Enter") {
       Promise.allSettled([axios.get(apiUrl), axios.get(apiForecastUrl)]).then(
         (results: any) => {
