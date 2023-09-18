@@ -1,7 +1,15 @@
 import { Container, Heading, Text } from "@chakra-ui/react";
 import "./CityWeatherComponent.css";
+import { ICityWeatherData } from "../Forecast";
 
-export const CityWeatherComponent = ({ cityData }: any) => {
+interface CityWeatherProps {
+  cityData: ICityWeatherData;
+}
+
+export const CityWeatherComponent: React.FC<CityWeatherProps> = ({
+  cityData,
+}) => {
+  console.log(cityData);
   return (
     <Container
       className="weather-shown"
