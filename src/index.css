@@ -11,7 +11,7 @@ body {
 
 .weather-container {
     display: flex;
-    margin: 50px auto;
+    margin: 100px auto;
 }
 
 .content-container {

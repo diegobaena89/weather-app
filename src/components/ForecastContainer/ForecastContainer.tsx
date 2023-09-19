@@ -11,25 +11,24 @@ export const ForecastContainer = ({
     return null;
   }
 
+  const filteredDays: any = filterObjectsWithDifferentDays(forecastSevenDays);
+  const dtTxtList = filteredDays.map((day: any) => day.dt_txt);
+  const forecastDay = dtTxtList.map((date: any) => getDayOfWeek(date));
+
   function getDayOfWeek(dateString: string) {
     const daysOfWeek = [
-      "Domingo",
-      "Segunda-feira",
-      "Terça-feira",
-      "Quarta-feira",
-      "Quinta-feira",
-      "Sexta-feira",
-      "Sábado",
+      "Sunday",
+      "Monday",
+      "Tuesday",
+      "Wednesday",
+      "Thursday",
+      "Friday",
+      "Saturday",
     ];
     const date = new Date(dateString);
     const dayIndex = date.getUTCDay();
     return daysOfWeek[dayIndex];
   }
-
-  const filteredDays: any = filterObjectsWithDifferentDays(forecastSevenDays);
-  const dtTxtList = filteredDays.map((day: any) => day.dt_txt);
-  const forecastDay = dtTxtList.map((date: any) => getDayOfWeek(date));
-  console.log(forecastDay);
 
   function filterObjectsWithDifferentDays(data: any) {
     if (!data || !data.list || data.list.length === 0) {
@@ -61,9 +60,9 @@ export const ForecastContainer = ({
       className="forecast-container"
       borderRadius={10}
       maxWidth={"50vw"}
-      padding={5}
+      padding="30px 0px"
     >
-      <Text as="b" color="#7a7a7a" fontSize="md">
+      <Text as="b" color="#7a7a7a" fontSize="sm" marginLeft={4}>
         7-DAY FORECAST
       </Text>
       {filteredDays.map((day: IForecastDay, index: number) => {
@@ -78,9 +77,10 @@ export const ForecastContainer = ({
                 display: "flex",
                 alignItems: "center",
                 justifyContent: "space-between",
+                marginTop: "15px",
               }}
             >
-              <Text as="b" color="#7a7a7a" fontSize="lg">
+              <Text as="b" color="#c7c7c7" fontSize="lg">
                 {forecastDay[index]}
               </Text>
               <div style={{ display: "flex", alignItems: "center" }}>
@@ -88,7 +88,7 @@ export const ForecastContainer = ({
                   src={`http://openweathermap.org/img/w/${day.weather[0].icon}.png`}
                   alt={day.weather[0].description}
                 />
-                <Text as="b" color="#7a7a7a" fontSize="lg">
+                <Text as="b" fontSize="md" margin="0px 8px">
                   {day.weather[0].description}
                 </Text>
               </div>

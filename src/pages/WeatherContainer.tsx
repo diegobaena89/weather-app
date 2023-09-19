@@ -35,6 +35,7 @@ export const WeatherContainer = () => {
     <div className="weather-container">
       <Container
         maxWidth={"55vw"}
+        minWidth={"60vw"}
         maxHeight={"auto"}
         borderRadius={15}
         backgroundColor={"#fff"}
@@ -46,7 +47,7 @@ export const WeatherContainer = () => {
           backgroundColor={"#f8f8f8"}
           size="lg"
           marginBottom={7}
-          maxWidth={"41vw"}
+          maxWidth={"35vw"}
           onKeyPress={searchLocation}
           value={location}
           border="none"

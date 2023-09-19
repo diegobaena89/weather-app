@@ -17,7 +17,7 @@ export const AirConditions = ({
       maxWidth={"100vw"}
       padding={5}
     >
-      <Text as="b" color="#7a7a7a" fontSize="md">
+      <Text as="b" color="#7a7a7a" fontSize="sm">
         AIR CONDITIONS
       </Text>
 
