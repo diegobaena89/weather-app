@@ -52,6 +52,8 @@ export const WeatherContainer = () => {
           value={location}
           border="none"
           onChange={(event) => setLocation(event.target.value)}
+          fontSize={20}
+          color={"#919191"}
         />
         <div className="content-container">
           <CityWeatherComponent cityData={data} />
