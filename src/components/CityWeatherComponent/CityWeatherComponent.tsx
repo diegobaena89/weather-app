@@ -9,7 +9,6 @@ interface CityWeatherProps {
 export const CityWeatherComponent: React.FC<CityWeatherProps> = ({
   cityData,
 }) => {
-  console.log(cityData);
   return (
     <Container
       className="weather-shown"

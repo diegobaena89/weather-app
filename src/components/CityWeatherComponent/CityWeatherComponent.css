@@ -1,7 +1,7 @@
 .weather-shown {
     display: grid; 
 
-   grid-template-rows: 1fr 1fr 1fr;
+   grid-template-rows: -1fr 1fr 1fr;
    grid-template-columns: 1fr 1fr;
    
    gap: 0px;
@@ -40,4 +40,5 @@
    grid-column-end: 3;
 
    display: flex;
+   justify-content: end;
 }

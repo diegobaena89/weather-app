@@ -19,8 +19,6 @@ export const WeatherContainer = () => {
     location
   )}&units=metric&appid=5d61e221a7e29ce7dcf2b4a96c455609`;
 
-  console.log("DATA", data);
-
   const searchLocation = (event: React.KeyboardEvent) => {
     if (event.key === "Enter") {
       Promise.allSettled([axios.get(apiUrl), axios.get(apiForecastUrl)]).then(

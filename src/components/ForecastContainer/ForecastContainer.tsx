@@ -11,14 +11,49 @@ export const ForecastContainer = ({
     return null;
   }
 
-  console.log("forecastSevenDays", forecastSevenDays);
+  function getDayOfWeek(dateString: string) {
+    const daysOfWeek = [
+      "Domingo",
+      "Segunda-feira",
+      "Terça-feira",
+      "Quarta-feira",
+      "Quinta-feira",
+      "Sexta-feira",
+      "Sábado",
+    ];
+    const date = new Date(dateString);
+    const dayIndex = date.getUTCDay();
+    return daysOfWeek[dayIndex];
+  }
 
-  const firstSevenDays = forecastSevenDays.list.slice(0, 7);
+  const filteredDays: any = filterObjectsWithDifferentDays(forecastSevenDays);
+  const dtTxtList = filteredDays.map((day: any) => day.dt_txt);
+  const forecastDay = dtTxtList.map((date: any) => getDayOfWeek(date));
+  console.log(forecastDay);
 
-  const forecastDay = new Date(firstSevenDays[0].dt * 1000).toLocaleDateString(
-    "en-US",
-    { weekday: "long" }
-  );
+  function filterObjectsWithDifferentDays(data: any) {
+    if (!data || !data.list || data.list.length === 0) {
+      return [];
+    }
+
+    let previousDay = "";
+    const filteredList = [];
+
+    for (let i = 0; i < data.list.length; i++) {
+      const currentDate = data.list[i].dt_txt.split(" ")[0];
+
+      if (currentDate !== previousDay) {
+        filteredList.push(data.list[i]);
+        if (filteredList.length === 7) {
+          break;
+        }
+      }
+
+      previousDay = currentDate;
+    }
+
+    return filteredList;
+  }
 
   return (
     <Container
@@ -31,8 +66,7 @@ export const ForecastContainer = ({
       <Text as="b" color="#7a7a7a" fontSize="md">
         7-DAY FORECAST
       </Text>
-      {firstSevenDays.map((day: IForecastDay) => {
-        console.log("DAY", day);
+      {filteredDays.map((day: IForecastDay, index: number) => {
         return (
           <React.Fragment key={day.dt}>
             <Container
@@ -47,7 +81,7 @@ export const ForecastContainer = ({
               }}
             >
               <Text as="b" color="#7a7a7a" fontSize="lg">
-                {forecastDay}
+                {forecastDay[index]}
               </Text>
               <div style={{ display: "flex", alignItems: "center" }}>
                 <img

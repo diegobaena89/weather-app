@@ -2,8 +2,13 @@ import { Container, Text } from "@chakra-ui/react";
 import { Drop, Sun, ThermometerSimple, Wind } from "@phosphor-icons/react";
 import "./AirConditions.css";
 import { AirConditionInfo } from "./components/AirConditionInfo";
+import { ICityWeatherData } from "../Forecast";
 
-export const AirConditions = ({ airConditionsData }: any) => {
+export const AirConditions = ({
+  airConditionsData,
+}: {
+  airConditionsData: ICityWeatherData;
+}) => {
   return (
     <Container
       backgroundColor={"#f8f8f8"}
