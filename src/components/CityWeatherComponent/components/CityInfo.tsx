@@ -1,5 +1,7 @@
 import { Heading, Text } from "@chakra-ui/react";
 import { ICityWeatherData } from "../../Forecast";
+import React from "react";
+import { getCustomWeatherIcon } from "../../../utils/getCustomWeatherIcons";
 
 export const CityInfo = ({ cityData }: { cityData: ICityWeatherData }) => {
   return (
@@ -11,8 +13,9 @@ export const CityInfo = ({ cityData }: { cityData: ICityWeatherData }) => {
       </div>
       <div className="weather-icon">
         <img
-          src={`http://openweathermap.org/img/wn/${cityData.weather[0].icon}.png`}
+          src={getCustomWeatherIcon(cityData.weather[0].icon)}
           alt="weather icon"
+          width="50%"
         />
       </div>
     </>

@@ -1,5 +1,7 @@
 import { Container, Text, Divider } from "@chakra-ui/react";
 import { IForecastDay } from "../../Forecast";
+import React from "react";
+import { getCustomWeatherIcon } from "../../../utils/getCustomWeatherIcons";
 
 export const ForecastInfo = ({
   day,
@@ -27,10 +29,17 @@ export const ForecastInfo = ({
         <Text as="b" color="#c7c7c7" fontSize="lg">
           {forecastDay[index]}
         </Text>
-        <div style={{ display: "flex", alignItems: "center" }}>
+        <div
+          style={{
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+          }}
+        >
           <img
-            src={`http://openweathermap.org/img/w/${day.weather[0].icon}.png`}
+            src={getCustomWeatherIcon(day.weather[0].icon)}
             alt={day.weather[0].description}
+            width="15%"
           />
           <Text as="b" fontSize="md" margin="0px 8px">
             {day.weather[0].description}

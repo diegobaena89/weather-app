@@ -1,6 +1,6 @@
+import React, { useState } from "react";
 import { Container, Input } from "@chakra-ui/react";
 import axios from "axios";
-import { useState } from "react";
 import { CityWeatherComponent } from "../components/CityWeatherComponent/CityWeatherComponent";
 import { TodaysForecats } from "../components/TodaysForecats/TodaysForecats";
 import { AirConditions } from "../components/AirConditions/AirConditions";

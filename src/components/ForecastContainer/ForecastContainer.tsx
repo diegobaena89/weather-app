@@ -1,7 +1,9 @@
-import { Container, Text, Divider } from "@chakra-ui/react";
+import { Container, Text } from "@chakra-ui/react";
 import React from "react";
 import { IForecastData, IForecastDay } from "../Forecast";
 import { ForecastInfo } from "./components/ForecastInfo";
+import { getDayOfWeek } from "../../utils/getDaysOfWeek";
+import { filterObjectsWithDifferentDays } from "../../utils/filterObjectsWithDifferentDays";
 
 export const ForecastContainer = ({
   forecastSevenDays,
@@ -12,48 +14,9 @@ export const ForecastContainer = ({
     return null;
   }
 
-  const filteredDays: any = filterObjectsWithDifferentDays(forecastSevenDays);
+  const filteredDays = filterObjectsWithDifferentDays(forecastSevenDays);
   const dtTxtList = filteredDays.map((day: any) => day.dt_txt);
   const forecastDay = dtTxtList.map((date: any) => getDayOfWeek(date));
-
-  function getDayOfWeek(dateString: string) {
-    const daysOfWeek = [
-      "Sunday",
-      "Monday",
-      "Tuesday",
-      "Wednesday",
-      "Thursday",
-      "Friday",
-      "Saturday",
-    ];
-    const date = new Date(dateString);
-    const dayIndex = date.getUTCDay();
-    return daysOfWeek[dayIndex];
-  }
-
-  function filterObjectsWithDifferentDays(data: any) {
-    if (!data || !data.list || data.list.length === 0) {
-      return [];
-    }
-
-    let previousDay = "";
-    const filteredList = [];
-
-    for (let i = 0; i < data.list.length; i++) {
-      const currentDate = data.list[i].dt_txt.split(" ")[0];
-
-      if (currentDate !== previousDay) {
-        filteredList.push(data.list[i]);
-        if (filteredList.length === 7) {
-          break;
-        }
-      }
-
-      previousDay = currentDate;
-    }
-
-    return filteredList;
-  }
 
   return (
     <Container

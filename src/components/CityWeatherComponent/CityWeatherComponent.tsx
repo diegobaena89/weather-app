@@ -2,6 +2,7 @@ import { Container, Heading, Text } from "@chakra-ui/react";
 import "./CityWeatherComponent.css";
 import { ICityWeatherData } from "../Forecast";
 import { CityInfo, CityTemperature } from "./components/CityInfo";
+import React from "react";
 
 interface CityWeatherProps {
   cityData: ICityWeatherData;

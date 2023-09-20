@@ -1,7 +1,7 @@
-import { Container, Divider, Text } from "@chakra-ui/react";
-import React from "react";
+import { Container } from "@chakra-ui/react";
 import { ForecastItem, IForecastData, IForecastDay } from "../Forecast";
 import { TodaysInfo } from "./components/TodaysInfo";
+import React from "react";
 
 export const TodaysForecats = ({
   forecastToday,

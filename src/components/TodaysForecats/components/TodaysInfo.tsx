@@ -1,6 +1,8 @@
 import React from "react";
 import { ForecastItem } from "../../Forecast";
 import { Container, Text, Divider } from "@chakra-ui/react";
+import { getCustomWeatherIcon } from "../../../utils/getCustomWeatherIcons";
+import { showAmOrPm } from "../../../utils/showAmOrPm";
 
 export const TodaysInfo = ({
   day,
@@ -11,15 +13,6 @@ export const TodaysInfo = ({
   index: number;
   daysHour: string[];
 }) => {
-  const showAmOrPm = (hour: string) => {
-    const hourInt = parseInt(hour);
-    if (hourInt > 12) {
-      return `${hourInt - 12} PM`;
-    } else {
-      return `${hourInt} AM`;
-    }
-  };
-
   return (
     <>
       <React.Fragment key={day.dt_txt}>
@@ -36,7 +29,7 @@ export const TodaysInfo = ({
             </Text>
 
             <img
-              src={`http://openweathermap.org/img/w/${day.weather[0].icon}.png`}
+              src={getCustomWeatherIcon(day.weather[0].icon)}
               alt={day.weather[0].description}
             />
 

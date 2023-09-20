@@ -1,4 +1,5 @@
 import { Text, Tooltip } from "@chakra-ui/react";
+import React from "react";
 
 interface AirConditionInfoProps {
   airInfo: string;

@@ -3,6 +3,7 @@ import { Drop, Sun, ThermometerSimple, Wind } from "@phosphor-icons/react";
 import "./AirConditions.css";
 import { AirConditionInfo } from "./components/AirConditionInfo";
 import { ICityWeatherData } from "../Forecast";
+import React from "react";
 
 export const AirConditions = ({
   airConditionsData,
