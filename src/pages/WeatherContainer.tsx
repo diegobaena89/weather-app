@@ -15,7 +15,7 @@ export const WeatherContainer = () => {
     location
   )}&units=metric&appid=5d61e221a7e29ce7dcf2b4a96c455609`;
 
-  const apiForecastUrl = `http://api.openweathermap.org/data/2.5/forecast?&q=${encodeURIComponent(
+  const apiForecastUrl = `https://api.openweathermap.org/data/2.5/forecast?&q=${encodeURIComponent(
     location
   )}&units=metric&appid=5d61e221a7e29ce7dcf2b4a96c455609`;
 
