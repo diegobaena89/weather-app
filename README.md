@@ -19,6 +19,8 @@ Key Features:
 - Customization: Tailor the app to your preferences. Set your default location, choose between Fahrenheit and Celsius, and personalize your experience.
 - Reliable Data: We source our weather data from the trusted OpenWeatherAPI, ensuring accuracy and reliability in every forecast.
 
+You can also visite the deployed project by clicking [here](#https://weather-app-git-main-diegobaena89.vercel.app/)
+
 ---
 
 🚀 <a id="features"> **Features** </a>
