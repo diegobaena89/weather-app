@@ -1,47 +1,46 @@
-# Getting Started with Create React App
+<div align="center">
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+![TypeScript](https://img.shields.io/badge/typescript-%23007ACC.svg?style=for-the-badge&logo=typescript&logoColor=white) ![React](https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB) ![Chakra](https://img.shields.io/badge/chakra-%234ED1C5.svg?style=for-the-badge&logo=chakraui&logoColor=white)
 
-## Available Scripts
+[Project](#project) | [Features](#features) | [Layout](#layout) | [Launch](#launch)
 
-In the project directory, you can run:
+</div>
 
-### `npm start`
+📝 <a id="project"> **Project** </a>
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Our React TypeScript Weather Forecast App, built with Chakra UI, brings you real-time weather information effortlessly. With seamless integration of the OpenWeatherAPI, it provides accurate and up-to-date weather forecasts at your fingertips.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+Key Features:
 
-### `npm test`
+- Current Weather: Instantly access the current weather conditions for your location, including temperature, humidity, wind speed, and visibility. Stay informed about the weather right now.
+- Daily Forecasts: Plan your day effectively with detailed daily weather forecasts. Get insights into temperature highs and lows, as well as the likelihood of precipitation. Whether it's a sunny day or a rainy one, we've got you covered.
+- Weekly Outlook: Stay ahead of the weather with our weekly forecasts. Get a comprehensive view of the upcoming week, so you can make informed decisions and prepare for any weather changes.
+- User-Friendly Design: Our user interface is designed with you in mind. It's intuitive, visually appealing, and easy to navigate, making it accessible for users of all ages.
+- Customization: Tailor the app to your preferences. Set your default location, choose between Fahrenheit and Celsius, and personalize your experience.
+- Reliable Data: We source our weather data from the trusted OpenWeatherAPI, ensuring accuracy and reliability in every forecast.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+---
 
-### `npm run build`
+🚀 <a id="features"> **Features** </a>
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- [x] Create UI
+- [x] Fetching data from OpenWeatherAPI
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+---
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+<a id="layout"> **Layout** </a>
 
-### `npm run eject`
+[![Layout](https://github.com/diegobaena89/weather-app/blob/main/src/assets/weather-app.png?raw=true "Layout")](https://github.com/diegobaena89/weather-app/blob/main/src/assets/weather-app.png?raw=true "Layout")
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+---
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+📂 <a id="launch"> **How to start this project** </a>
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+       # Clone this repo
+    ❯ git clone https://github.com/diegobaena89/weather-app.git
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+    # Enter on its directory
+    ❯ cd waeathe-app
 
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-#weather-app
+    # Launch the Application
+    ❯ yarn dev
