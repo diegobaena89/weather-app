@@ -26,10 +26,10 @@ export const AirConditions = ({
             AIR CONDITIONS
           </Text>
 
-          {airConditionsData.main ? (
+          {airConditionsData?.main ? (
             <>
               <AirConditionInfo
-                airInfo={`${airConditionsData.main.humidity}%`}
+                airInfo={`${airConditionsData?.main.humidity}%`}
                 infoText="Humidity:"
                 icon={Drop}
                 className="chance-of-rain"
@@ -37,7 +37,7 @@ export const AirConditions = ({
               />
 
               <AirConditionInfo
-                airInfo={`${airConditionsData.main.feels_like} hPa`}
+                airInfo={`${airConditionsData?.main.feels_like} hPa`}
                 infoText="Real Feel:"
                 icon={ThermometerSimple}
                 className="real-feel"
@@ -45,7 +45,7 @@ export const AirConditions = ({
               />
 
               <AirConditionInfo
-                airInfo={`${airConditionsData.wind.speed} MPH`}
+                airInfo={`${airConditionsData?.wind.speed} MPH`}
                 infoText="Wind:"
                 icon={Wind}
                 className="wind"
@@ -53,7 +53,7 @@ export const AirConditions = ({
               />
 
               <AirConditionInfo
-                airInfo={`${airConditionsData.wind.deg}º`}
+                airInfo={`${airConditionsData?.wind.deg}º`}
                 infoText="UV Index:"
                 icon={Sun}
                 className="uv-index"

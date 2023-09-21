@@ -1,7 +1,6 @@
 import { WeatherItem } from "../pages/Weather";
 
 export function filterObjectsWithDifferentDays(data: { list: WeatherItem[] }) {
-  console.log("DATA", data);
   if (!data?.list || data.list.length === 0) {
     return [];
   }

@@ -29,7 +29,7 @@ export const ForecastContainer = ({
       <Text as="b" color="#7a7a7a" fontSize="sm" marginLeft={4}>
         7-DAY FORECAST
       </Text>
-      {filteredDays.map((day: IForecastDay, index: number) => {
+      {filteredDays?.map((day: IForecastDay, index: number) => {
         return (
           <React.Fragment key={day.dt}>
             <ForecastInfo day={day} index={index} forecastDay={forecastDay} />

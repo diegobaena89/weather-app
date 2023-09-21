@@ -1,4 +1,4 @@
-import { Container, Heading, Text } from "@chakra-ui/react";
+import { Container, Heading } from "@chakra-ui/react";
 import "./CityWeatherComponent.css";
 import { ICityWeatherData } from "../Forecast";
 import { CityInfo, CityTemperature } from "./components/CityInfo";
@@ -20,11 +20,11 @@ export const CityWeatherComponent: React.FC<CityWeatherProps> = ({
     >
       <div className="city-name">
         <Heading as="h3" size="2xl">
-          {cityData.name}
+          {cityData?.name}
         </Heading>
       </div>
-      {cityData.weather ? <CityInfo cityData={cityData} /> : null}
-      {cityData.main ? <CityTemperature cityData={cityData} /> : null}
+      {cityData?.weather ? <CityInfo cityData={cityData} /> : null}
+      {cityData?.main ? <CityTemperature cityData={cityData} /> : null}
     </Container>
   );
 };

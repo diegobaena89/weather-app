@@ -12,7 +12,7 @@ export const TodaysForecats = ({
     return null;
   }
 
-  const firstSevenDays = forecastToday.list.slice(0, 7);
+  const firstSevenDays = forecastToday?.list.slice(0, 7);
   const daysHour = firstSevenDays.map((day: IForecastDay) => {
     return day.dt_txt.split(" ")[1];
   });
@@ -30,7 +30,7 @@ export const TodaysForecats = ({
       {firstSevenDays.map((day: ForecastItem, index: number) => {
         return (
           <TodaysInfo
-            key={day.dt_txt}
+            key={day?.dt_txt}
             day={day}
             index={index}
             daysHour={daysHour}

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Container, Input } from "@chakra-ui/react";
+import { Container, Input, Skeleton, Stack } from "@chakra-ui/react";
 import axios from "axios";
 import { CityWeatherComponent } from "../components/CityWeatherComponent/CityWeatherComponent";
 import { TodaysForecats } from "../components/TodaysForecats/TodaysForecats";
@@ -10,6 +10,9 @@ export const WeatherContainer = () => {
   const [location, setLocation] = useState("");
   const [data, setData] = useState<any>({});
   const [forecast, setForecast] = useState<any>({});
+  const isDataEmpty = Object.keys(data).length === 0;
+  const isForecastEmpty = Object.keys(forecast).length === 0;
+  const isDataAndForecastEmpty = isDataEmpty && isForecastEmpty;
 
   const apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${encodeURIComponent(
     location
@@ -20,12 +23,20 @@ export const WeatherContainer = () => {
   )}&units=metric&appid=5d61e221a7e29ce7dcf2b4a96c455609`;
 
   const searchLocation = (event: React.KeyboardEvent) => {
-    if (event.key === "Enter") {
+    if (event.key === "Enter" && location.trim() !== "") {
       Promise.allSettled([axios.get(apiUrl), axios.get(apiForecastUrl)]).then(
         (results: any) => {
           const [weatherData, forecastData] = results;
-          setData(weatherData.value.data);
-          setForecast(forecastData.value.data);
+          if (
+            weatherData.status === "fulfilled" &&
+            forecastData.status === "fulfilled"
+          ) {
+            setData(weatherData.value.data);
+            setForecast(forecastData.value.data);
+          } else {
+            // Handle the case when one or both requests fail
+            console.error("API request failed.");
+          }
         }
       );
     }
@@ -55,12 +66,36 @@ export const WeatherContainer = () => {
           fontSize={20}
           color={"#919191"}
         />
-        <div className="content-container">
-          <CityWeatherComponent cityData={data} />
-          <TodaysForecats forecastToday={forecast} />
-          <AirConditions airConditionsData={data} />
-          <ForecastContainer forecastSevenDays={forecast} />
-        </div>
+        {isDataAndForecastEmpty ? (
+          <>
+            <Stack>
+              <Skeleton
+                startColor="#f8f8f8"
+                endColor={"#d2d2d2"}
+                height="20px"
+              />
+              <Skeleton
+                startColor="#f8f8f8"
+                endColor={"#d2d2d2"}
+                height="20px"
+              />
+              <Skeleton
+                startColor="#f8f8f8"
+                endColor={"#d2d2d2"}
+                height="20px"
+              />
+            </Stack>
+          </>
+        ) : (
+          <>
+            <div className="content-container">
+              <CityWeatherComponent cityData={data} />
+              <TodaysForecats forecastToday={forecast} />
+              <AirConditions airConditionsData={data} />
+              <ForecastContainer forecastSevenDays={forecast} />
+            </div>
+          </>
+        )}
       </Container>
     </div>
   );
